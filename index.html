@@ -1,0 +1,511 @@
+Lumo PlusPlus
+New chatCtrl+J
+SearchCtrl+K
+Library
+All chats
+Projects
+
+    My computers
+    Minecraft
+
+Favorites
+Recent
+
+    Short Free Online Markdown Course Basics
+    KDE Plasma HDMI Preview Window
+    SKILL.md File Distribution and Collaboration
+    Word SharePoint Table Header Locking
+    Separating Behringer UMC404 Channels In OBS
+    Tuta vs Proton Email Comparison
+    Blueprint Contents Question
+    Numenera AI Core Photo Realistic Image
+    Identifying Lost Sci-Fi Detective Novel
+
+Settings
+Kenneth Frantzenkenneth.frantzen@protonmail.comKF
+Close sidebar
+Current chat:Short Free Online Markdown Course Basics
+Show knowledge panel
+Help me find the best Markdown course online! It must not take more than 30 minutes, and just needs to cover the absolute basics. It is so pupils from Fordonsprogrammet, El- och Energiprogrammet and Ekonomiprogrammet will be able to create SKILL.md files. 
+
+So a basic, simple and streamlined free online course, please!
+Worked through your question and searched the web
+
+Three solid free candidates, all well under your 30-minute cap:
+
+Verdict: markdowntutorial.com
+
+    Interactive, browser-based, no account needed. The site itself pitches it as "if you have ten minutes, you can learn Markdown" — realistically 15–20 minutes with the exercises.
+    One lesson per concept (italics, headers, lists, links, images, code, blockquotes), each with practice tasks where pupils type and get instant feedback. That hands-on element is worth more to Fordons-/El-/Ekonomi pupils than passive video, since writing a SKILL.md is exactly this kind of typing.
+    It's free and open source (github.com/gjtorikian/markdowntutorial.com), based on CommonMark.
+
+Runners-up, depending on taste:
+
+    commonmark.org/help/tutorial — the strict-minimum option. Ten short lessons, probably ~10 minutes total. Drier, no gamification, but bulletproof for a quick classroom slot. It also doubles as a compact syntax cheat-sheet afterwards.
+    Web Dev Simplified, "The Only Markdown Crash Course You Will Ever Need" (YouTube, 2023, ~22 min) — for pupils who prefer video. Covers basics plus tables and checklists, which the two tutorials above don't. Chaptered timestamps make it skippable.
+
+One honest caveat: I found no free Markdown course in Swedish — everything decent is English. Given your pupils, the interactive tutorials handle this best since the reading load is minimal and every exercise is "type the symbols and see the result."
+
+Not covered by any of these in depth: tables and checkboxes — but if the SKILL.md template is fixed, pupils likely just fill in text under pre-existing headings, so I'd call that a footnote, not a blocker. If the template does use tables, add the last two minutes of the video.
+
+Want me to draft a one-page Swedish instruction sheet for the pupils wrapping around the tutorial — what Markdown is, why SKILL.md uses it, and the five or six symbols they actually need?
+N
+M
+Sources
+Please do.
+Worked through your question
+
+The instruction sheet is ready — Swedish throughout, pitched for pupils who've never formatted text with anything but Word, with technical terms and symbol names kept in English.
+
+A few notes on choices:
+
+    Table order matches the tutorial's lesson order, so pupils can fill it in as they go.
+    The example SKILL.md uses a Fordons scenario so at least one intake class sees themselves in it. If you want, I can swap it for an El- or Ekonomi-themed example, or produce three variants so each programme gets its own.
+    The checklist requires big-S-K-I-L-L caps — platform rendering can be case-sensitive there, so making it explicit saves you twenty "why doesn't my file work" questions. Double-check whether that applies to your platform before printing; if filenames are case-insensitive where you deploy, drop the big-S-K-I-L-L emphasis and keep the checklist lean.
+
+The pupils find this tutorial extremely hard. Both since it is in English, and also since the concepts is completely foreign to them.
+Worked through your question
+
+No surprise there — markdowntutorial.com assumes pupils already know what "markup", "plaintext" and "rendering" mean. I searched for a Swedish-language alternative previously and found nothing worth using, so let me flip the approach: we build one. A single self-contained HTML file, in Swedish, with the pedagogy stripped down to what SKILL.md actually needs. You can drop it straight onto GitHub Pages, or just open the file locally — it has zero dependencies.
+
+Here's a first working version — do you want me to hold it, or shall I show it to you? Actually, easier: here it is.
+
+The page is in your panel — a fully self-contained Swedish course, built from scratch for exactly this audience. You can save it as markdown-kurs.html and either hand pupils the file directly (works offline, opens in any browser, nothing else required) or push it to GitHub Pages behind a short URL.
+
+Some key decisions, for scrutiny:
+
+    Built-in live preview on every exercise. Pupils type on the left, result on the right — the main thing markdowntutorial.com had going for it, kept. This is what makes "completely foreign concept" survivable: it's a sandbox where mistakes cost nothing.
+    Concrete "check" buttons with Swedish praise/hints. A failed check gives a targeted tip ("raden måste BÖRJA med # följt av ett mellanslag"), not a red X. Pupils self-correct instead of guessing.
+    Five short lessons: headings, bold/italic, lists, links, then build-your-own-SKILL.md. Final lesson has a partially-filled template pupils overwrite with their own programme's content, plus a progress bar and a working "download as SKILL.md" button — so the deliverable falls out of the lesson itself.
+    Examples rotate between programmes (verksam for Fordons, electric example for El, generic for Ekonomi) rather than being one flavour.
+
+Deliberately left out, and why: code blocks, blockquotes, images, tables — you don't need any of them for a SKILL.md, and each extra concept costs struggle-points with this audience. Everything they do need is covered.
+
+Things worth checking yourself before deploying: does the downloaded file land somewhere useful on their Chromebooks/computers (Downloads folder is fine for hand-in via Teams), and do you want the lesson-3 template pre-filled differently for each class? Happy to generate one variant per programme if the mixed examples feel like a compromise rather than a feature.
+Conversation encrypted
+Ask anything to Lumo
+Tools
+Connecting…
+Lumo 2.0 Max
+
+Lumo can make mistakes. Please double-check responses.
+Lumo
+Markdown på 20 minuter (SV)
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown på 20 minuter – bygg din SKILL.md</title>
+<style>
+  :root {
+    --bg: #faf9f7; --panel: #ffffff; --ink: #24292f; --soft: #57606a;
+    --accent: #2f6fed; --accent-soft: #eaf1fe; --ok: #1a7f37; --ok-bg: #e6f4ea;
+    --warn: #9a6700; --warn-bg: #fff3cd; --line: #d8dee4; --mono: ui-monospace, "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 1.05rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 60rem; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+
+  header.topbar { background: var(--accent); color: #fff; }
+  header.topbar .inner { max-width: 60rem; margin: 0 auto; padding: 1.75rem 1.25rem; }
+  header.topbar h1 { margin: 0 0 .35rem; font-size: 1.7rem; }
+  header.topbar p { margin: 0; opacity: .92; max-width: 38rem; }
+
+  section.intro, section.lesson { background: var(--panel); border: 1px solid var(--line);
+         border-radius: 12px; padding: 1.4rem 1.5rem; margin: 1.25rem 0; }
+  h2 { margin-top: 0; font-size: 1.3rem; }
+  h2 .num { display: inline-block; background: var(--accent); color: #fff; width: 1.9rem;
+         height: 1.9rem; line-height: 1.9rem; text-align: center; border-radius: 50%;
+         font-size: 1rem; margin-right: .5rem; }
+  .analogy { background: var(--accent-soft); border-left: 4px solid var(--accent);
+         padding: .8rem 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+
+  .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  @media (max-width: 720px) { .workspace { grid-template-columns: 1fr; } }
+  .pane { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .pane h3 { margin: 0; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase;
+         background: #f1f3f5; color: var(--soft); padding: .5rem .8rem; border-bottom: 1px solid var(--line); }
+  textarea { width: 100%; height: 11rem; border: 0; padding: .8rem; resize: vertical;
+         font: .95rem/1.6 var(--mono); color: var(--ink); background: #fff; }
+  textarea:focus { outline: 2px solid var(--accent); }
+  .preview { padding: .8rem 1rem; min-height: 11rem; background: #fff; }
+  .preview h1 { font-size: 1.5rem; margin: .6rem 0 .4rem; }
+  .preview h2 { font-size: 1.25rem; margin: .6rem 0 .4rem; }
+  .preview h3 { font-size: 1.1rem; margin: .5rem 0 .3rem; }
+  .preview p { margin: .5rem 0; }
+  .preview ul, .preview ol { margin: .5rem 0; padding-left: 1.6rem; }
+  .preview code { background: #eff1f3; padding: .1rem .35rem; border-radius: 4px;
+         font-family: var(--mono); font-size: .9em; }
+  .preview a { color: var(--accent); }
+  .preview hr { border: 0; border-top: 1px solid var(--line); margin: 1rem 0; }
+
+  button.check { background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+         padding: .6rem 1.2rem; font-size: 1rem; cursor: pointer; }
+  button.check:hover { filter: brightness(1.1); }
+  .feedback { margin: .7rem 0 0; padding: .6rem .9rem; border-radius: 8px; display: none; }
+  .feedback.ok { display: block; background: var(--ok-bg); color: var(--ok); }
+  .feedback.warn { display: block; background: var(--warn-bg); color: var(--warn); }
+
+  table.cheat { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .98rem; }
+  table.cheat th, table.cheat td { border: 1px solid var(--line); padding: .5rem .7rem; text-align: left; }
+  table.cheat th { background: #f1f3f5; }
+  table.cheat code { background: #eff1f3; padding: .05rem .3rem; border-radius: 4px;
+         font-family: var(--mono); font-size: .92em; }
+
+  progress { width: 100%; height: .8rem; margin: .4rem 0 0; }
+  .progress-wrap { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+         padding: .9rem 1.2rem; margin: 1.25rem 0; }
+  .done { text-decoration: line-through; color: var(--ok); }
+  footer { color: var(--soft); font-size: .9rem; text-align: center; margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="inner">
+    <h1>Markdown på 20 minuter</h1>
+    <p>Så skriver du din <strong>SKILL.md</strong>-fil. Jobba dig neråt genom de fem lektionerna.
+       Skriv i vänstra rutan och se resultatet i högra rutan – direkt.</p>
+  </div>
+</header>
+
+<main>
+
+<div class="progress-wrap">
+  <strong>Din framgång:</strong> <span id="progress-label">0 av 5 lektioner klara</span>
+  <progress id="progress" value="0" max="5"></progress>
+</div>
+
+<section class="intro">
+  <h2>Vad är Markdown?</h2>
+  <div class="analogy">
+    <strong>Tänk på SMS.</strong> Ingen använder fetstil-knappar i ett SMS. I stället skriver man
+    <em>*hej hej*</em> eller <em>!!VIKTIGT!!</em> – och mottagaren förstår ändå.
+    Markdown fungerar likadant: du skriver vanlig text med några enkla tecken,
+    och datorn sköter formateringen.
+  </div>
+  <p>Filen du ska skapa, <code>SKILL.md</code>, är skriven i Markdown.
+     Ändelsen <code>.md</code> betyder just Markdown.
+     Du behöver bara kunna fem saker – och dem lär du dig på den här sidan.</p>
+
+  <table class="cheat">
+    <tr><th>Du skriver</th><th>Det blir</th></tr>
+    <tr><td><code># Rubrik</code></td><td>Stor rubrik</td></tr>
+    <tr><td><code>## Underrubrik</code></td><td>Mindre rubrik</td></tr>
+    <tr><td><code>**viktigt**</code></td><td><strong>viktigt</strong> (fetstil)</td></tr>
+    <tr><td><code>*lutande*</code></td><td><em>lutande</em> (kursiv)</td></tr>
+    <tr><td><code>- punkt</code></td><td>Punktlista</td></tr>
+    <tr><td><code>1. punkt</code></td><td>Numrerad lista</td></tr>
+    <tr><td><code>[text](https://exempel.se)</code></td><td>Länk</td></tr>
+  </table>
+</section>
+
+<!-- ===================== LEKTION 1 ===================== -->
+<section class="lesson" id="lesson-1">
+  <h2><span class="num">1</span>Rubriker med #</h2>
+  <p>Ett ensamt brädgårdstecken (<code>#</code>) följt av mellanslag i början av en rad blir en stor rubrik.
+     Två (<code>##</code>) blir en mindre rubrik. Sidan du läser just nu är uppbyggd så!</p>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Skriv här (Markdown)</h3>
+      <textarea id="ta-1" spellcheck="false"># Jag kan bilar
+## Fordonsprogrammet</textarea>
+    </div>
+    <div class="pane">
+      <h3>Ser ut så här (resultat)</h3>
+      <div class="preview" id="pv-1"></div>
+    </div>
+  </div>
+
+  <p><strong>Din uppgift:</strong> Gör om texten nedan så att den blir två rubriker:
+     en stor som börjar med <code>#</code> och en mindre som börjar med <code>##</code>.</p>
+  <div class="workspace">
+    <div class="pane">
+      <h3>Uppgift 1</h3>
+      <textarea id="ex-1" spellcheck="false">Mina kunskaper
+Fordonsprogrammet</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="ex-pv-1" style="min-height:auto"></div>
+    </div>
+  </div>
+  <button class="check" onclick="checkLesson(1)">Kontrollera uppgift 1</button>
+  <p class="feedback" id="fb-1"></p>
+</section>
+
+<!-- ===================== LEKTION 2 ===================== -->
+<section class="lesson" id="lesson-2">
+  <h2><span class="num">2</span>Fetstil och kursiv</h2>
+  <p>Sätt två stjärnor <strong>före och efter</strong> orden du vill ha tjocka: <code>**viktigt**</code>.
+     En stjärna ger lutande (kursiv) text: <code>*lutande*</code>.</p>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Uppgift 2</h3>
+      <textarea id="ex-2" spellcheck="false">Jag har lärt mig säkert arbete i verkstad.
+Det viktigaste jag kan är att hantera lyftanordningar.</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="ex-pv-2" style="min-height:auto"></div>
+    </div>
+  </div>
+  <p><strong>Din uppgift:</strong> Ordvalet är ditt – men göra orden <em>lärt mig</em> kursiva
+     (en stjärna) och <em>lyftanordningar</em> tjocka (två stjärnor).</p>
+  <button class="check" onclick="checkLesson(2)">Kontrollera uppgift 2</button>
+  <p class="feedback" id="fb-2"></p>
+</section>
+
+<!-- ===================== LEKTION 3 ===================== -->
+<section class="lesson" id="lesson-3">
+  <h2><span class="num">3</span>Listor</h2>
+  <p>En rad som börjar med tankstreck följt av mellanslag, <code>- </code>, blir en punkt.
+     Sätter du siffror i stället, <code>1. </code>, <code>2. </code>, blir listan numrerad – perfekt
+     för en arbetsgång där ordningen spelar roll.</p>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Uppgift 3</h3>
+      <textarea id="ex-3" spellcheck="false">Mina moment:
+- felkoder
+- bromsar</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="ex-pv-3" style="min-height:auto"></div>
+    </div>
+  </div>
+  <p><strong>Din uppgift:</strong> Gör om texten nedan till <em>en numrerad lista</em>
+     (arbetsgång – ordningen spelar roll!). Skriv hela texten i vänster ruta, ersätt gärna
+     med moment från ditt eget program.</p>
+  <div class="workspace">
+    <div class="pane">
+      <h3>Din arbetsgång</h3>
+      <textarea id="ex3b" spellcheck="false">Först stänger jag av strömmen.
+Sedan provar jag att insträngen är spänningslös.
+Till sist provar jag komponenten.</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="ex3b-pv" style="min-height:auto"></div>
+    </div>
+  </div>
+  <button class="check" onclick="checkLesson(3)">Kontrollera uppgift 3</button>
+  <p class="feedback" id="fb-3"></p>
+</section>
+
+<!-- ===================== LEKTION 4 ===================== -->
+<section class="lesson" id="lesson-4">
+  <h2><span class="num">4</span>Länkar</h2>
+  <p>En länk byggs av två delar inom klamrar och parenteser:
+     <code>[texten man klickar på](https://adressen.se)</code>.
+     Notera: inga mellanslag mellan <code>]</code> och <code>(</code>.</p>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Uppgift 4</h3>
+      <textarea id="ex-4" spellcheck="false">Min bästa källa är Skolverket.</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="ex-pv-4" style="min-height:auto"></div>
+    </div>
+  </div>
+  <p><strong>Din uppgift:</strong> Gör om <em>Skolverket</em> till en klickbar länk som leder till
+     <code>https://www.skolverket.se</code>.</p>
+  <button class="check" onclick="checkLesson(4)">Kontrollera uppgift 4</button>
+  <p class="feedback" id="fb-4"></p>
+</section>
+
+<!-- ===================== LEKTION 5 ===================== -->
+<section class="lesson" id="lesson-5">
+  <h2><span class="num">5</span>Nu bygger du din SKILL.md</h2>
+  <p>Nu sätter vi ihop allt. Skriv din egen <code>SKILL.md</code> i rutan nedan –
+     om ditt program, dina moment och dina källor. Mallen till höger hjälper dig igång;
+     radera det du inte behöver och skriv om allt med egna ord.</p>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Din SKILL.md</h3>
+      <textarea id="final" spellcheck="false" style="height: 18rem"># Ditt namn och program
+
+Här skriver du en mening om vad du har lärt dig.
+
+## Moment jag kan
+
+- moment ett
+- **moment två** (det du är bäst på!)
+
+## Min arbetsgång
+
+1. första steget
+2. andra steget
+
+## Länkar
+
+- [Skolverket](https://www.skolverket.se)</textarea>
+    </div>
+    <div class="pane">
+      <h3>Resultat</h3>
+      <div class="preview" id="final-pv" style="min-height: 18rem"></div>
+    </div>
+  </div>
+
+  <p>Kontrollera att din text innehåller: en <code>#</code>-rubrik, en punktlista,
+     en numrerad lista, minst ett <code>**fetstilt**</code> ord och minst en länk.</p>
+  <button class="check" onclick="checkLesson(5)">Kontrollera min SKILL.md</button>
+  <p class="feedback" id="fb-5"></p>
+  <p><button class="check" onclick="downloadFile()">Ladda ner som SKILL.md</button>
+     <span style="color:var(--soft)"> – spara filen och lämnar in den där din lärare säger.</span></p>
+</section>
+
+<footer>
+  En freedidsida – kopiera, ändra och sprid fritt. Byggd med vanlig HTML, CSS och JavaScript.
+</footer>
+
+</main>
+
+<script>
+/* ---------- Minimal Markdown-renderare (räcker för uppgifterna) ---------- */
+function renderMarkdown(src) {
+  var esc = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  var lines = esc.split(/\r?\n/);
+  var html = [];
+  var i = 0;
+
+  function inline(t) {
+    t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
+    t = t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    t = t.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+    return t;
+  }
+
+  while (i < lines.length) {
+    var line = lines[i];
+
+    if (/^#{1,6}\s+/.test(line)) {
+      var level = line.match(/^#+/)[0].length;
+      html.push("<h" + level + ">" + inline(line.replace(/^#+\s+/, "")) + "</h" + level + ">");
+      i++;
+    } else if (/^\s*[-*]\s+/.test(line)) {
+      html.push("<ul>");
+      while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
+        html.push("<li>" + inline(lines[i].replace(/^\s*[-*]\s+/, "")) + "</li>");
+        i++;
+      }
+      html.push("</ul>");
+    } else if (/^\s*\d+\.\s+/.test(line)) {
+      html.push("<ol>");
+      while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+        html.push("<li>" + inline(lines[i].replace(/^\s*\d+\.\s+/, "")) + "</li>");
+        i++;
+      }
+      html.push("</ol>");
+    } else if (/^\s*$/.test(line)) {
+      i++; /* tom rad: styckesavskiljare */
+    } else {
+      html.push("<p>" + inline(line) + "</p>");
+      i++;
+    }
+  }
+  return html.join("");
+}
+
+/* ---------- Levande förhandsvisning ---------- */
+var liveIds = [["ta-1","pv-1"],["ex-1","ex-pv-1"],["ex-2","ex-pv-2"],["ex-3","ex-pv-3"],
+               ["ex3b","ex3b-pv"],["ex-4","ex-pv-4"],["final","final-pv"]];
+liveIds.forEach(function(pair) {
+  var ta = document.getElementById(pair[0]);
+  var pv = document.getElementById(pair[1]);
+  function upd() { pv.innerHTML = renderMarkdown(ta.value); }
+  ta.addEventListener("input", upd);
+  upd();
+});
+
+/* ---------- Rättning av uppgifterna ---------- */
+var done = {};
+var hints = {
+  1: "Tips: raden måste BÖRJA med # följt av ett mellanslag. Prova: # Mina kunskaper",
+  2: "Tips: en stjärna före och en efter ordet, utan mellanslag: *lärt mig* och **lyftanordningar**",
+  3: "Tips: varje rad måste börja med siffra, prick och mellanslag, till exempel: 1. Först stänger jag av strömmen.",
+  4: "Tips: formatet är exakt [Skolverket](https://www.skolverket.se) – fyrkantparentes kring texten, vanlig parentes kring adressen.",
+  5: "Tips: gå tillbaka till lektionerna ovan och titta på exemplen. Kontrollera också att listraderna börjar precis i början av raden, utan indrag."
+};
+var praise = {
+  1: "Klockrent! Nu kan du göra rubriker.",
+  2: "Snyggt! Fetstil och kursiv sitta där de ska.",
+  3: "Perfekt – en riktig arbetsgång!",
+  4: "Bra! Länken ser klickbar ut.",
+  5: "Klar! Din SKILL.md ser bra ut. Ladda ner den med knappen nedanför."
+};
+
+function checkLesson(n) {
+  var fb = document.getElementById("fb-" + n);
+  var src, ok;
+  if (n === 1 || n === 4) {
+    src = document.getElementById("ex-" + n).value;
+  } else if (n === 2) {
+    src = document.getElementById("ex-2").value;
+  } else if (n === 3) {
+    src = document.getElementById("ex3b").value;
+  } else {
+    src = document.getElementById("final").value;
+  }
+
+  if (n === 1)      ok = /^#\s+\S/m.test(src) && /^##\s+\S/m.test(src);
+  else if (n === 2) ok = /\*[^*\s][^*]*\*/.test(src) && /\*\*[^*]+\*\*/.test(src);
+  else if (n === 3) ok = /^\s*\d+\.\s+\S/m.test(src) && (src.match(/^\s*\d+\./gm) || []).length >= 2;
+  else if (n === 4) ok = /\[([^\]]+)\]\(https?:\/\/[^)\s]+\)/.test(src);
+  else              ok = /^#\s+\S/m.test(src) && /^#{2,3}\s+\S/m.test(src) &&
+                        /^\s*[-*]\s+\S/m.test(src) && /^\s*\d+\.\s+\S/m.test(src) &&
+                        /\*\*[^*]+\*\*/.test(src) && /\[[^\]]+\]\([^)\s]+\)/.test(src);
+
+  if (ok) {
+    fb.textContent = praise[n];
+    fb.className = "feedback ok";
+    if (!done[n]) { done[n] = true; updateProgress(); flashSection(n); }
+  } else {
+    fb.textContent = "Inte riktigt än. " + hints[n];
+    fb.className = "feedback warn";
+  }
+}
+
+function updateProgress() {
+  var count = Object.keys(done).length;
+  var p = document.getElementById("progress");
+  p.value = count;
+  document.getElementById("progress-label").textContent =
+    count + (count === 1 ? " lektion klar av 5" : " lektioner klara av 5");
+  if (count === 5) {
+    document.getElementById("progress-label").textContent += " – GRATTIS, helt klart!";
+  }
+}
+
+function flashSection(n) {
+  var h = document.querySelector("#lesson-" + n + " h2");
+  if (h) {
+    h.classList.add("done");
+  }
+}
+
+/* ---------- Nedladdning av SKILL.md ---------- */
+function downloadFile() {
+  var text = document.getElementById("final").value;
+  var blob = new Blob([text], { type: "text/markdown" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "SKILL.md";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
