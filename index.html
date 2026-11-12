@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Markdown på 20 minuter – bygg din SKILL.md</title>
+<title>Markdown på en lektion – bygg din SKILL.md</title>
 <style>
   :root {
     --bg: #faf9f7; --panel: #ffffff; --ink: #24292f; --soft: #57606a;
@@ -46,7 +46,9 @@
   .preview code { background: #eff1f3; padding: .1rem .35rem; border-radius: 4px;
          font-family: var(--mono); font-size: .9em; }
   .preview a { color: var(--accent); }
-  .preview pre { background: #eff1f3; padding: .6rem .8rem; border-radius: 6px; margin: 0 0 .6rem;
+  details { margin: 1rem 0; }
+  summary { cursor: pointer; color: var(--accent); }
+  .preview pre, pre.raw { background: #eff1f3; padding: .6rem .8rem; border-radius: 6px; margin: 0 0 .6rem;
          font: .9rem/1.5 var(--mono); white-space: pre-wrap; }
   .preview hr { border: 0; border-top: 1px solid var(--line); margin: 1rem 0; }
 
@@ -78,7 +80,7 @@
 
 <header class="topbar">
   <div class="inner">
-    <h1>Markdown på 20 minuter</h1>
+    <h1>Markdown på en lektion</h1>
     <p>Så skriver du din <strong>SKILL.md</strong>-fil. Jobba dig neråt genom de fem lektionerna.
        Skriv i vänstra rutan och se resultatet i högra rutan – direkt.</p>
   </div>
@@ -95,7 +97,7 @@
   <h2>Vad är Markdown?</h2>
   <div class="analogy">
     <strong>Tänk på SMS.</strong> Ingen använder fetstil-knappar i ett SMS. I stället skriver man
-    <em>*hej hej*</em> eller <em>!!VIKTIGT!!</em> – och mottagaren förstår ändå.
+    <em>_hej hej_</em> eller <em>!!VIKTIGT!!</em> – och mottagaren förstår ändå.
     Markdown fungerar likadant: du skriver vanlig text med några enkla tecken,
     och datorn sköter formateringen.
   </div>
@@ -108,10 +110,11 @@
     <tr><td><code># Rubrik</code></td><td>Stor rubrik</td></tr>
     <tr><td><code>## Underrubrik</code></td><td>Mindre rubrik</td></tr>
     <tr><td><code>**viktigt**</code></td><td><strong>viktigt</strong> (fetstil)</td></tr>
-    <tr><td><code>*lutande*</code></td><td><em>lutande</em> (kursiv)</td></tr>
+    <tr><td><code>_lutande_</code></td><td><em>lutande</em> (kursiv)</td></tr>
     <tr><td><code>- punkt</code></td><td>Punktlista</td></tr>
     <tr><td><code>1. punkt</code></td><td>Numrerad lista</td></tr>
     <tr><td><code>[text](https://exempel.se)</code></td><td>Länk</td></tr>
+    <tr><td>En tom rad</td><td>Nytt stycke</td></tr>
   </table>
 
   <p><strong>Var sitter tecknen på tangentbordet?</strong></p>
@@ -120,6 +123,7 @@
     <tr><td><code>#</code></td><td><kbd>Shift</kbd> + <kbd>3</kbd></td></tr>
     <tr><td><code>*</code></td><td><kbd>Shift</kbd> + <kbd>'</kbd> (tangenten till vänster om Enter)</td></tr>
     <tr><td><code>-</code></td><td>Tangenten till höger om punkt</td></tr>
+    <tr><td><code>_</code></td><td><kbd>Shift</kbd> + <kbd>-</kbd></td></tr>
     <tr><td><code>[</code> och <code>]</code></td><td><kbd>AltGr</kbd> + <kbd>8</kbd> och <kbd>AltGr</kbd> + <kbd>9</kbd></td></tr>
     <tr><td><code>(</code> och <code>)</code></td><td><kbd>Shift</kbd> + <kbd>8</kbd> och <kbd>Shift</kbd> + <kbd>9</kbd></td></tr>
   </table>
@@ -164,9 +168,14 @@ Måndag</textarea>
 <section class="lesson" id="lesson-2">
   <h2><span class="num">2</span>Fetstil och kursiv</h2>
   <p>Sätt två stjärnor <strong>före och efter</strong> orden du vill ha tjocka: <code>**viktigt**</code>.
-     En stjärna ger lutande (kursiv) text: <code>*lutande*</code>.</p>
+     Ett understreck <strong>före och efter</strong> ger lutande (kursiv) text: <code>_lutande_</code>.</p>
+  <div class="analogy">
+    <strong>Bra att veta:</strong> rader som står direkt under varandra flyter ihop till ett stycke.
+    Vill du börja ett <strong>nytt stycke</strong> lämnar du en <strong>tom rad</strong> emellan.
+    Prova i rutan nedan: tryck Enter en extra gång mellan de två raderna.
+  </div>
 
-  <p><strong>Din uppgift:</strong> Gör orden <em>på fredag</em> kursiva (en stjärna på varje sida)
+  <p><strong>Din uppgift:</strong> Gör orden <em>på fredag</em> kursiva (ett understreck på varje sida)
      och ordet <em>glosorna</em> tjockt (två stjärnor på varje sida).</p>
   <div class="workspace">
     <div class="pane">
@@ -250,25 +259,22 @@ Till sist lämnar jag in.</textarea>
   <p>Nu sätter vi ihop allt. En <strong>skill</strong> är en instruktion till en AI – ungefär som när du
      förklarar för en ny klasskompis hur något ska göras. AI:n läser instruktionen och vet sedan
      vad den ska göra och hur du vill ha det. Instruktionen sparas i en fil som heter <code>SKILL.md</code>.</p>
-  <p>Mallen nedan är en skill som hjälper dig att plugga inför prov. Ändra den så att den passar dig –
-     eller skriv om allt till något eget, till exempel om ditt program.</p>
-  <p><strong>Börja med namn och beskrivning.</strong> Sidan skriver då skillens <strong>etikett</strong>
-     åt dig: den grå rutan överst i resultatet, mellan två rader med <code>---</code>.
-     Namnet görs automatiskt om till små bokstäver och bindestreck, för så måste en skill heta.
-     Beskrivningen talar om för AI:n när skillen ska användas.</p>
+  <p><strong>Välj en mall att börja från:</strong></p>
+  <ul>
+    <li><strong>Plugghjälp</strong> – AI:n hjälper dig att plugga inför prov.</li>
+    <li><strong>Persona</strong> – AI:n skriver inlägg på sociala medier som en påhittad person.
+        Du bestämmer vem: byt ut allt som står inom <code>[hakparenteser]</code> mot egna ord.</li>
+  </ul>
+  <p><button type="button" class="check" onclick="useTemplate('plugg')">Använd mallen Plugghjälp</button>
+     <button type="button" class="check" onclick="useTemplate('persona')">Använd mallen Persona</button></p>
+  <p>Ändra sedan mallen så att den passar dig – eller skriv om allt till något eget,
+     till exempel om ditt program.</p>
 
-  <div class="fields">
-    <label for="skill-name">Skillens namn</label>
-    <input id="skill-name" autocomplete="off" spellcheck="false" maxlength="64" value="Plugghjälp inför prov">
-    <label for="skill-desc">Beskrivning – vad gör skillen och när ska AI:n använda den?</label>
-    <input id="skill-desc" autocomplete="off" maxlength="1000"
-           value="Hjälper mig att plugga inför prov. Använd den när jag har ett prov på gång eller vill bli förhörd.">
-  </div>
-
-  <div class="workspace">
-    <div class="pane">
-      <h3>Instruktionen (Markdown)</h3>
-      <textarea id="final" spellcheck="false" autocomplete="off" style="height: 18rem"># Plugghjälp inför prov
+  <!-- Mallarna. data-name och data-desc fyller i fälten, texten inuti hamnar i rutan.
+       Skriv bara Markdown här, ingen HTML. Den första (tpl-plugg) laddas från start. -->
+  <template id="tpl-plugg" data-name="Plugghjälp inför prov"
+            data-desc="Hjälper mig att plugga inför prov. Använd den när jag har ett prov på gång eller vill bli förhörd.">
+# Plugghjälp inför prov
 
 Du är min studiekompis. Hjälp mig att förstå – **ge mig inte svaren direkt**.
 
@@ -286,16 +292,91 @@ Du är min studiekompis. Hjälp mig att förstå – **ge mig inte svaren direkt
 
 ## Länkar
 
-- [Skolverket](https://www.skolverket.se)</textarea>
+- [Skolverket](https://www.skolverket.se)
+  </template>
+  <template id="tpl-persona" data-name="[Skriv namnet här]"
+            data-desc="Skriver påhittade inlägg på sociala medier som [NAMN], en [ÅLDER]-årig [YRKE] från [ORT]. Använd när någon vill ha ett inlägg, en kommentar eller ett svar skrivet av [NAMN].">
+# Skriv som [NAMN]
+
+Du skriver inlägg på sociala medier som om du vore [NAMN].
+[NAMN] är en påhittad person.
+
+## Vem är [NAMN]?
+
+- Ålder: [ÅLDER]
+- Jobb: [YRKE]
+- Bor i: [ORT]
+- Familj: [VILKA BOR HEN MED?]
+- Gillar: [TRE SAKER]
+- Blir arg på: [TRE SAKER]
+
+## Var skriver [NAMN]?
+
+- [NAMN] skriver mest på: [Facebook / Instagram / TikTok / X / annat]
+- [NAMN] skriver ungefär [hur ofta?]
+
+## Hur ser ett inlägg ut?
+
+- Längd: [t.ex. 1–3 meningar]
+- Emojis: [inga / några / väldigt många]
+- Hashtaggar: [inga / några / väldigt många]
+- Stavning: [perfekt / några fel / många fel]
+- Stämning: [glad / sur / snäll / arg / rolig]
+- [NAMN] säger ofta: "[EN MENING]"
+- [NAMN] skriver aldrig: [t.ex. svåra ord, engelska, svordomar]
+
+## Vad skriver [NAMN] om?
+
+- [ÄMNE 1]
+- [ÄMNE 2]
+- [ÄMNE 3]
+
+## Exempel på inlägg
+
+Skriv tre inlägg precis som [NAMN] skulle skriva dem. Med stavfel, emojis och allt.
+
+1. Inlägg om [ÄMNE 1]: [SKRIV INLÄGGET HÄR]
+2. Inlägg om [ÄMNE 2]: [SKRIV INLÄGGET HÄR]
+3. Kommentar när någon håller med [NAMN]: [SKRIV KOMMENTAREN HÄR]
+
+## Regler
+
+- **Skriv bara som [NAMN].** Förklara inte vad du gör.
+- Skriv aldrig om riktiga personer, riktiga företag eller riktiga händelser som om de vore sanna.
+- Skriv aldrig något elakt om en grupp människor.
+- Hitta inte på nya saker om [NAMN] som krockar med det som står här.
+  </template>
+  <p><strong>Börja med namn och beskrivning.</strong> Sidan skriver då skillens <strong>etikett</strong>
+     åt dig: den grå rutan överst i resultatet, mellan två rader med <code>---</code>.
+     Namnet görs automatiskt om till små bokstäver och bindestreck, för så måste en skill heta.
+     Beskrivningen talar om för AI:n när skillen ska användas.</p>
+
+  <div class="fields">
+    <label for="skill-name">Skillens namn</label>
+    <input id="skill-name" autocomplete="off" spellcheck="false" maxlength="64">
+    <label for="skill-desc">Beskrivning – vad gör skillen och när ska AI:n använda den?</label>
+    <input id="skill-desc" autocomplete="off" maxlength="1000">
+  </div>
+
+  <div class="workspace">
+    <div class="pane">
+      <h3>Instruktionen (Markdown)</h3>
+      <textarea id="final" spellcheck="false" autocomplete="off" style="height: 18rem"></textarea>
     </div>
     <div class="pane">
       <h3>Så här blir din SKILL.md</h3>
       <div class="preview" id="final-pv" style="min-height: 18rem"></div>
     </div>
   </div>
+  <details>
+    <summary>Visa hela filen som text – precis så här ser den ut när du laddar ner den</summary>
+    <pre class="raw" id="final-raw"></pre>
+  </details>
 
   <p>Din skill ska ha: ett namn, en beskrivning, en <code>#</code>-rubrik, en <code>##</code>-underrubrik,
-     en punktlista, en numrerad lista, minst ett <code>**fetstilt**</code> ord och minst en länk.
+     en punktlista, en numrerad lista och minst ett <code>**fetstilt**</code> ord. Mallen Plugghjälp ska
+     också ha minst en länk. Inga <code>[hakparenteser]</code> från mallen får vara kvar,
+     och du ska ha ändrat mallen till din egen text.
      Knappen visar vad som är klart och vad som saknas.</p>
   <button class="check" onclick="checkLesson(5)">Kontrollera min SKILL.md</button>
   <p class="feedback" id="fb-5"></p>
@@ -321,7 +402,8 @@ function frontmatter(src) {
 }
 
 function renderMarkdown(src) {
-  var esc = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  /* " måste också bytas ut: annars kan en länkadress smita ut ur href="..." */
+  var esc = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   var html = [];
   var fm = frontmatter(esc);
   if (fm) { html.push("<pre>" + fm[1] + "</pre>"); esc = esc.slice(fm[0].length); }
@@ -332,8 +414,15 @@ function renderMarkdown(src) {
     t = t.replace(/`([^`]+)`/g, "<code>$1</code>");
     t = t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     t = t.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-    t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+    /* _kursiv_ bara vid ordgräns, så att under_streck i adresser och ord lämnas ifred */
+    t = t.replace(/(^|[^\w])_([^_\s][^_]*)_(?!\w)/g, "$1<em>$2</em>");
+    /* bara http(s)-adresser blir klickbara, så att javascript:-länkar inte kan köras */
+    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
     return t;
+  }
+  /* rader som börjar något nytt: tom rad, rubrik, punktlista, numrerad lista */
+  function startsBlock(l) {
+    return /^\s*$/.test(l) || /^#{1,6}\s+/.test(l) || /^\s*[-*]\s+/.test(l) || /^\s*\d+\.\s+/.test(l);
   }
 
   while (i < lines.length) {
@@ -360,8 +449,10 @@ function renderMarkdown(src) {
     } else if (/^\s*$/.test(line)) {
       i++; /* tom rad: styckesavskiljare */
     } else {
-      html.push("<p>" + inline(line) + "</p>");
-      i++;
+      /* rader direkt under varandra hör till samma stycke, precis som i riktig Markdown */
+      var para = [];
+      while (i < lines.length && !startsBlock(lines[i])) { para.push(lines[i]); i++; }
+      html.push("<p>" + inline(para.join(" ")) + "</p>");
     }
   }
   return html.join("");
@@ -381,7 +472,7 @@ function resetAll() {
 /* ---------- Lektion 5: namn + beskrivning blir etiketten överst i filen ---------- */
 /* "Mitt Program" -> "mitt-program": en skill får bara heta a–z, 0–9 och enkla bindestreck */
 function slug(s) {
-  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+  return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
           .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 function skillFile() {
@@ -390,14 +481,34 @@ function skillFile() {
          "\ndescription: " + JSON.stringify(document.getElementById("skill-desc").value.trim()) +
          "\n---\n\n" + document.getElementById("final").value;
 }
+function renderFinal() {
+  document.getElementById("final-pv").innerHTML = renderMarkdown(skillFile());
+  document.getElementById("final-raw").textContent = skillFile();
+}
+
+/* Mallarna ligger som <template id="tpl-..."> i lektion 5 */
+function fillTemplate(id) {
+  var t = document.getElementById("tpl-" + id);
+  var data = { "skill-name": t.dataset.name, "skill-desc": t.dataset.desc, "final": t.content.textContent.trim() };
+  Object.keys(data).forEach(function(k) { document.getElementById(k).value = data[k]; });
+  return data;
+}
+var currentTpl = load("tpl") || "plugg"; /* styr om länk krävs i kontrollen */
+function useTemplate(id) {
+  if (!confirm("Mallen ersätter det du har skrivit i lektion 5. Vill du byta mall?")) return;
+  currentTpl = id;
+  save("tpl", id);
+  var data = fillTemplate(id);
+  Object.keys(data).forEach(function(k) { save(k, data[k]); });
+  renderFinal();
+}
+fillTemplate("plugg"); /* startmall; det sparade läggs ovanpå här nedanför */
+
 ["skill-name", "skill-desc"].forEach(function(id) {
   var el = document.getElementById(id);
   var saved = load(id);
   if (saved !== null) el.value = saved;
-  el.addEventListener("input", function() {
-    save(id, el.value);
-    document.getElementById("final-pv").innerHTML = renderMarkdown(skillFile());
-  });
+  el.addEventListener("input", function() { save(id, el.value); renderFinal(); });
 });
 
 /* ---------- Levande förhandsvisning ---------- */
@@ -408,7 +519,9 @@ liveIds.forEach(function(pair) {
   var pv = document.getElementById(pair[1]);
   var saved = load(pair[0]);
   if (saved !== null) ta.value = saved;
-  function upd() { pv.innerHTML = renderMarkdown(pair[0] === "final" ? skillFile() : ta.value); }
+  function upd() {
+    if (pair[0] === "final") renderFinal(); else pv.innerHTML = renderMarkdown(ta.value);
+  }
   ta.addEventListener("input", function() { save(pair[0], ta.value); upd(); });
   upd();
 });
@@ -420,7 +533,7 @@ Object.keys(done).forEach(flashSection);
 updateProgress();
 var hints = {
   1: "Tips: raden måste BÖRJA med # följt av ett mellanslag. Prova: # Mitt schema",
-  2: "Tips: stjärnorna ska sitta direkt mot orden, utan mellanslag: *på fredag* och **glosorna**",
+  2: "Tips: tecknen ska sitta direkt mot orden, utan mellanslag: _på fredag_ och **glosorna**",
   3: "Tips: varje rad måste börja med siffra, punkt och mellanslag, till exempel: 1. Först läser jag uppgiften.",
   4: "Tips: formatet är exakt [Skolverket](https://www.skolverket.se) – hakparenteser kring texten, vanliga parenteser kring adressen."
   /* 5 skrivs av checkLesson: en lista över vad som är klart och vad som saknas */
@@ -447,7 +560,7 @@ function checkLesson(n) {
   }
 
   if (n === 1)      ok = /^#\s+\S/m.test(src) && /^##\s+\S/m.test(src);
-  else if (n === 2) ok = /\*[^*\s][^*]*\*/.test(src.replace(/\*\*[^*]+\*\*/g, "")) && /\*\*[^*]+\*\*/.test(src); /* kursiv räknas inte inuti fetstil */
+  else if (n === 2) ok = /(^|[^\w])_[^_\s][^_]*_(?!\w)|\*[^*\s][^*]*\*/m.test(src.replace(/\*\*[^*]+\*\*/g, "")) && /\*\*[^*]+\*\*/.test(src); /* _kursiv_ (eller *kursiv*), räknas inte inuti fetstil */
   else if (n === 3) ok = /^\s*\d+\.\s+\S/m.test(src) && (src.match(/^\s*\d+\./gm) || []).length >= 2;
   else if (n === 4) ok = /\[([^\]]+)\]\(https?:\/\/[^)\s]+\)/.test(src);
   else {
@@ -459,8 +572,15 @@ function checkLesson(n) {
       ["en punktlista där raderna börjar med -", /^\s*[-*]\s+\S/m.test(src)],
       ["en numrerad lista där raderna börjar med 1.", /^\s*\d+\.\s+\S/m.test(src)],
       ["minst ett **fetstilt** ord", /\*\*[^*]+\*\*/.test(src)],
-      ["minst en länk: [text](adress)", /\[[^\]]+\]\([^)\s]+\)/.test(src)]
-    ];
+      /* tredje värdet true = kravet gäller inte: en länk passar inte i en persona */
+      ["minst en länk: [text](https://adress)", /\[[^\]]+\]\(https?:\/\/[^)\s]+\)/.test(src), currentTpl === "persona"],
+      ["egna ändringar – inte bara mallens text", ["plugg", "persona"].every(function(id) {
+        return src.trim() !== document.getElementById("tpl-" + id).content.textContent.trim();
+      })],
+      /* [text] utan (adress) efter räknas som en plats i mallen som inte är ifylld */
+      ["egna ord i stället för alla [hakparenteser] från mallen",!/\[[^\]]*\](?!\()/.test(
+        document.getElementById("skill-name").value + "\n" + document.getElementById("skill-desc").value + "\n" + src)]
+    ].filter(function(it) { return !it[2]; });
     ok = items.every(function(it) { return it[1]; });
     hints[5] = "Det här behövs:\n" + items.map(function(it) {
       return (it[1] ? "✓ " : "✗ Saknas: ") + it[0];
