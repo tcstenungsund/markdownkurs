@@ -46,12 +46,18 @@
   .preview code { background: #eff1f3; padding: .1rem .35rem; border-radius: 4px;
          font-family: var(--mono); font-size: .9em; }
   .preview a { color: var(--accent); }
+  .preview pre { background: #eff1f3; padding: .6rem .8rem; border-radius: 6px; margin: 0 0 .6rem;
+         font: .9rem/1.5 var(--mono); white-space: pre-wrap; }
   .preview hr { border: 0; border-top: 1px solid var(--line); margin: 1rem 0; }
 
   button.check { background: var(--accent); color: #fff; border: 0; border-radius: 8px;
          padding: .6rem 1.2rem; font-size: 1rem; cursor: pointer; }
   button.check:hover { filter: brightness(1.1); }
-  .feedback { margin: .7rem 0 0; padding: .6rem .9rem; border-radius: 8px; display: none; }
+  .feedback { margin: .7rem 0 0; padding: .6rem .9rem; border-radius: 8px; display: none; white-space: pre-line; }
+  .fields label { display: block; font-weight: 600; margin-top: .8rem; }
+  .fields input { width: 100%; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: 8px;
+         font: inherit; color: var(--ink); background: #fff; }
+  .fields input:focus { outline: 2px solid var(--accent); }
   .feedback.ok { display: block; background: var(--ok-bg); color: var(--ok); }
   .feedback.warn { display: block; background: var(--warn-bg); color: var(--warn); }
 
@@ -81,7 +87,7 @@
 <main>
 
 <div class="progress-wrap">
-  <strong>Din framgång:</strong> <span id="progress-label">0 av 5 lektioner klara</span>
+  <strong>Dina framsteg:</strong> <span id="progress-label">0 av 5 lektioner klara</span>
   <progress id="progress" value="0" max="5"></progress>
 </div>
 
@@ -107,19 +113,29 @@
     <tr><td><code>1. punkt</code></td><td>Numrerad lista</td></tr>
     <tr><td><code>[text](https://exempel.se)</code></td><td>Länk</td></tr>
   </table>
+
+  <p><strong>Var sitter tecknen på tangentbordet?</strong></p>
+  <table class="cheat">
+    <tr><th>Tecken</th><th>Du trycker</th></tr>
+    <tr><td><code>#</code></td><td><kbd>Shift</kbd> + <kbd>3</kbd></td></tr>
+    <tr><td><code>*</code></td><td><kbd>Shift</kbd> + <kbd>'</kbd> (tangenten till vänster om Enter)</td></tr>
+    <tr><td><code>-</code></td><td>Tangenten till höger om punkt</td></tr>
+    <tr><td><code>[</code> och <code>]</code></td><td><kbd>AltGr</kbd> + <kbd>8</kbd> och <kbd>AltGr</kbd> + <kbd>9</kbd></td></tr>
+    <tr><td><code>(</code> och <code>)</code></td><td><kbd>Shift</kbd> + <kbd>8</kbd> och <kbd>Shift</kbd> + <kbd>9</kbd></td></tr>
+  </table>
 </section>
 
 <!-- ===================== LEKTION 1 ===================== -->
 <section class="lesson" id="lesson-1">
   <h2><span class="num">1</span>Rubriker med #</h2>
-  <p>Ett ensamt brädgårdstecken (<code>#</code>) följt av mellanslag i början av en rad blir en stor rubrik.
+  <p>Ett ensamt brädgårdstecken (<code>#</code>, samma tecken som i en hashtag) följt av mellanslag i början av en rad blir en stor rubrik.
      Två (<code>##</code>) blir en mindre rubrik. Sidan du läser just nu är uppbyggd så!</p>
 
   <div class="workspace">
     <div class="pane">
       <h3>Skriv här (Markdown)</h3>
-      <textarea id="ta-1" spellcheck="false"># Jag kan bilar
-## Fordonsprogrammet</textarea>
+      <textarea id="ta-1" spellcheck="false" autocomplete="off"># Plugga inför prov
+## Matematik</textarea>
     </div>
     <div class="pane">
       <h3>Ser ut så här (resultat)</h3>
@@ -132,8 +148,8 @@
   <div class="workspace">
     <div class="pane">
       <h3>Uppgift 1</h3>
-      <textarea id="ex-1" spellcheck="false">Mina kunskaper
-Fordonsprogrammet</textarea>
+      <textarea id="ex-1" spellcheck="false" autocomplete="off">Mitt schema
+Måndag</textarea>
     </div>
     <div class="pane">
       <h3>Resultat</h3>
@@ -150,19 +166,19 @@ Fordonsprogrammet</textarea>
   <p>Sätt två stjärnor <strong>före och efter</strong> orden du vill ha tjocka: <code>**viktigt**</code>.
      En stjärna ger lutande (kursiv) text: <code>*lutande*</code>.</p>
 
+  <p><strong>Din uppgift:</strong> Gör orden <em>på fredag</em> kursiva (en stjärna på varje sida)
+     och ordet <em>glosorna</em> tjockt (två stjärnor på varje sida).</p>
   <div class="workspace">
     <div class="pane">
       <h3>Uppgift 2</h3>
-      <textarea id="ex-2" spellcheck="false">Jag har lärt mig säkert arbete i verkstad.
-Det viktigaste jag kan är att hantera lyftanordningar.</textarea>
+      <textarea id="ex-2" spellcheck="false" autocomplete="off">Jag har prov på fredag.
+Jag måste komma ihåg att plugga glosorna.</textarea>
     </div>
     <div class="pane">
       <h3>Resultat</h3>
       <div class="preview" id="ex-pv-2" style="min-height:auto"></div>
     </div>
   </div>
-  <p><strong>Din uppgift:</strong> Ordvalet är ditt – men göra orden <em>lärt mig</em> kursiva
-     (en stjärna) och <em>lyftanordningar</em> tjocka (två stjärnor).</p>
   <button class="check" onclick="checkLesson(2)">Kontrollera uppgift 2</button>
   <p class="feedback" id="fb-2"></p>
 </section>
@@ -170,16 +186,16 @@ Det viktigaste jag kan är att hantera lyftanordningar.</textarea>
 <!-- ===================== LEKTION 3 ===================== -->
 <section class="lesson" id="lesson-3">
   <h2><span class="num">3</span>Listor</h2>
-  <p>En rad som börjar med tankstreck följt av mellanslag, <code>- </code>, blir en punkt.
+  <p>En rad som börjar med bindestreck (minustecknet) följt av mellanslag, <code>- </code>, blir en punkt.
      Sätter du siffror i stället, <code>1. </code>, <code>2. </code>, blir listan numrerad – perfekt
      för en arbetsgång där ordningen spelar roll.</p>
 
   <div class="workspace">
     <div class="pane">
-      <h3>Uppgift 3</h3>
-      <textarea id="ex-3" spellcheck="false">Mina moment:
-- felkoder
-- bromsar</textarea>
+      <h3>Exempel</h3>
+      <textarea id="ex-3" spellcheck="false" autocomplete="off">I skolväskan:
+- dator
+- laddare</textarea>
     </div>
     <div class="pane">
       <h3>Resultat</h3>
@@ -187,14 +203,14 @@ Det viktigaste jag kan är att hantera lyftanordningar.</textarea>
     </div>
   </div>
   <p><strong>Din uppgift:</strong> Gör om texten nedan till <em>en numrerad lista</em>
-     (arbetsgång – ordningen spelar roll!). Skriv hela texten i vänster ruta, ersätt gärna
-     med moment från ditt eget program.</p>
+     (arbetsgång – ordningen spelar roll!). Skriv i vänster ruta – byt gärna till en arbetsgång
+     från ditt eget program.</p>
   <div class="workspace">
     <div class="pane">
-      <h3>Din arbetsgång</h3>
-      <textarea id="ex3b" spellcheck="false">Först stänger jag av strömmen.
-Sedan provar jag att insträngen är spänningslös.
-Till sist provar jag komponenten.</textarea>
+      <h3>Uppgift 3</h3>
+      <textarea id="ex3b" spellcheck="false" autocomplete="off">Först läser jag uppgiften.
+Sedan skriver jag ett utkast.
+Till sist lämnar jag in.</textarea>
     </div>
     <div class="pane">
       <h3>Resultat</h3>
@@ -208,22 +224,22 @@ Till sist provar jag komponenten.</textarea>
 <!-- ===================== LEKTION 4 ===================== -->
 <section class="lesson" id="lesson-4">
   <h2><span class="num">4</span>Länkar</h2>
-  <p>En länk byggs av två delar inom klamrar och parenteser:
+  <p>En länk byggs av två delar: texten inom hakparenteser och adressen inom vanliga parenteser:
      <code>[texten man klickar på](https://adressen.se)</code>.
-     Notera: inga mellanslag mellan <code>]</code> och <code>(</code>.</p>
+     Notera: inget mellanslag mellan <code>]</code> och <code>(</code>.</p>
 
+  <p><strong>Din uppgift:</strong> Gör om <em>Skolverket</em> till en klickbar länk som leder till
+     <code>https://www.skolverket.se</code>.</p>
   <div class="workspace">
     <div class="pane">
       <h3>Uppgift 4</h3>
-      <textarea id="ex-4" spellcheck="false">Min bästa källa är Skolverket.</textarea>
+      <textarea id="ex-4" spellcheck="false" autocomplete="off">Min bästa källa är Skolverket.</textarea>
     </div>
     <div class="pane">
       <h3>Resultat</h3>
       <div class="preview" id="ex-pv-4" style="min-height:auto"></div>
     </div>
   </div>
-  <p><strong>Din uppgift:</strong> Gör om <em>Skolverket</em> till en klickbar länk som leder till
-     <code>https://www.skolverket.se</code>.</p>
   <button class="check" onclick="checkLesson(4)">Kontrollera uppgift 4</button>
   <p class="feedback" id="fb-4"></p>
 </section>
@@ -231,57 +247,85 @@ Till sist provar jag komponenten.</textarea>
 <!-- ===================== LEKTION 5 ===================== -->
 <section class="lesson" id="lesson-5">
   <h2><span class="num">5</span>Nu bygger du din SKILL.md</h2>
-  <p>Nu sätter vi ihop allt. Skriv din egen <code>SKILL.md</code> i rutan nedan –
-     om ditt program, dina moment och dina källor. Mallen till höger hjälper dig igång;
-     radera det du inte behöver och skriv om allt med egna ord.</p>
+  <p>Nu sätter vi ihop allt. En <strong>skill</strong> är en instruktion till en AI – ungefär som när du
+     förklarar för en ny klasskompis hur något ska göras. AI:n läser instruktionen och vet sedan
+     vad den ska göra och hur du vill ha det. Instruktionen sparas i en fil som heter <code>SKILL.md</code>.</p>
+  <p>Mallen nedan är en skill som hjälper dig att plugga inför prov. Ändra den så att den passar dig –
+     eller skriv om allt till något eget, till exempel om ditt program.</p>
+  <p><strong>Börja med namn och beskrivning.</strong> Sidan skriver då skillens <strong>etikett</strong>
+     åt dig: den grå rutan överst i resultatet, mellan två rader med <code>---</code>.
+     Namnet görs automatiskt om till små bokstäver och bindestreck, för så måste en skill heta.
+     Beskrivningen talar om för AI:n när skillen ska användas.</p>
+
+  <div class="fields">
+    <label for="skill-name">Skillens namn</label>
+    <input id="skill-name" autocomplete="off" spellcheck="false" maxlength="64" value="Plugghjälp inför prov">
+    <label for="skill-desc">Beskrivning – vad gör skillen och när ska AI:n använda den?</label>
+    <input id="skill-desc" autocomplete="off" maxlength="1000"
+           value="Hjälper mig att plugga inför prov. Använd den när jag har ett prov på gång eller vill bli förhörd.">
+  </div>
 
   <div class="workspace">
     <div class="pane">
-      <h3>Din SKILL.md</h3>
-      <textarea id="final" spellcheck="false" style="height: 18rem"># Ditt namn och program
+      <h3>Instruktionen (Markdown)</h3>
+      <textarea id="final" spellcheck="false" autocomplete="off" style="height: 18rem"># Plugghjälp inför prov
 
-Här skriver du en mening om vad du har lärt dig.
+Du är min studiekompis. Hjälp mig att förstå – **ge mig inte svaren direkt**.
 
-## Moment jag kan
+## Så här vill jag ha hjälp
 
-- moment ett
-- **moment två** (det du är bäst på!)
+- förklara med enkla ord
+- ge exempel från vardagen
+- ställ **en fråga i taget**
 
-## Min arbetsgång
+## Så här förhör du mig
 
-1. första steget
-2. andra steget
+1. Fråga vilket ämne provet gäller.
+2. Ställ en fråga och vänta på mitt svar.
+3. Berätta vad som var rätt och vad jag ska öva mer på.
 
 ## Länkar
 
 - [Skolverket](https://www.skolverket.se)</textarea>
     </div>
     <div class="pane">
-      <h3>Resultat</h3>
+      <h3>Så här blir din SKILL.md</h3>
       <div class="preview" id="final-pv" style="min-height: 18rem"></div>
     </div>
   </div>
 
-  <p>Kontrollera att din text innehåller: en <code>#</code>-rubrik, en punktlista,
-     en numrerad lista, minst ett <code>**fetstilt**</code> ord och minst en länk.</p>
+  <p>Din skill ska ha: ett namn, en beskrivning, en <code>#</code>-rubrik, en <code>##</code>-underrubrik,
+     en punktlista, en numrerad lista, minst ett <code>**fetstilt**</code> ord och minst en länk.
+     Knappen visar vad som är klart och vad som saknas.</p>
   <button class="check" onclick="checkLesson(5)">Kontrollera min SKILL.md</button>
   <p class="feedback" id="fb-5"></p>
   <p><button class="check" onclick="downloadFile()">Ladda ner som SKILL.md</button>
-     <span style="color:var(--soft)"> – spara filen och lämnar in den där din lärare säger.</span></p>
+     <span style="color:var(--soft)"> – spara filen och lämna in den där din lärare säger.</span></p>
+  <p>För att AI:n ska hitta din skill ska filen ligga i en mapp som heter samma sak som
+     <code>name</code> i den grå rutan, till exempel <code>plugghjalp-infor-prov/SKILL.md</code>.</p>
 </section>
 
 <footer>
-  En freedidsida – kopiera, ändra och sprid fritt. Byggd med vanlig HTML, CSS och JavaScript.
+  En fri sida – kopiera, ändra och sprid fritt. Byggd med vanlig HTML, CSS och JavaScript.
+  <br>Det du skriver sparas i din webbläsare.
+  <button type="button" onclick="resetAll()" style="font: inherit">Radera allt och börja om</button>
 </footer>
 
 </main>
 
 <script>
 /* ---------- Minimal Markdown-renderare (räcker för uppgifterna) ---------- */
+/* Etiketten (YAML-frontmatter) överst i en SKILL.md: --- ... --- */
+function frontmatter(src) {
+  return src.match(/^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/);
+}
+
 function renderMarkdown(src) {
   var esc = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  var lines = esc.split(/\r?\n/);
   var html = [];
+  var fm = frontmatter(esc);
+  if (fm) { html.push("<pre>" + fm[1] + "</pre>"); esc = esc.slice(fm[0].length); }
+  var lines = esc.split(/\r?\n/);
   var i = 0;
 
   function inline(t) {
@@ -323,29 +367,67 @@ function renderMarkdown(src) {
   return html.join("");
 }
 
+/* ---------- Sparar i webbläsaren så att inget försvinner om sidan laddas om ---------- */
+function load(key) { try { return localStorage.getItem("mdkurs-" + key); } catch (e) { return null; } }
+function save(key, val) { try { localStorage.setItem("mdkurs-" + key, val); } catch (e) {} }
+function resetAll() {
+  if (!confirm("Vill du radera allt du har skrivit och börja om?")) return;
+  try {
+    Object.keys(localStorage).forEach(function(k) { if (k.indexOf("mdkurs-") === 0) localStorage.removeItem(k); });
+  } catch (e) {}
+  location.reload();
+}
+
+/* ---------- Lektion 5: namn + beskrivning blir etiketten överst i filen ---------- */
+/* "Mitt Program" -> "mitt-program": en skill får bara heta a–z, 0–9 och enkla bindestreck */
+function slug(s) {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+          .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function skillFile() {
+  /* JSON.stringify sätter citattecken runt beskrivningen, så att kolon och andra tecken inte förstör filen */
+  return "---\nname: " + slug(document.getElementById("skill-name").value) +
+         "\ndescription: " + JSON.stringify(document.getElementById("skill-desc").value.trim()) +
+         "\n---\n\n" + document.getElementById("final").value;
+}
+["skill-name", "skill-desc"].forEach(function(id) {
+  var el = document.getElementById(id);
+  var saved = load(id);
+  if (saved !== null) el.value = saved;
+  el.addEventListener("input", function() {
+    save(id, el.value);
+    document.getElementById("final-pv").innerHTML = renderMarkdown(skillFile());
+  });
+});
+
 /* ---------- Levande förhandsvisning ---------- */
 var liveIds = [["ta-1","pv-1"],["ex-1","ex-pv-1"],["ex-2","ex-pv-2"],["ex-3","ex-pv-3"],
                ["ex3b","ex3b-pv"],["ex-4","ex-pv-4"],["final","final-pv"]];
 liveIds.forEach(function(pair) {
   var ta = document.getElementById(pair[0]);
   var pv = document.getElementById(pair[1]);
-  function upd() { pv.innerHTML = renderMarkdown(ta.value); }
-  ta.addEventListener("input", upd);
+  var saved = load(pair[0]);
+  if (saved !== null) ta.value = saved;
+  function upd() { pv.innerHTML = renderMarkdown(pair[0] === "final" ? skillFile() : ta.value); }
+  ta.addEventListener("input", function() { save(pair[0], ta.value); upd(); });
   upd();
 });
 
 /* ---------- Rättning av uppgifterna ---------- */
 var done = {};
+try { done = JSON.parse(load("done")) || {}; } catch (e) {}
+Object.keys(done).forEach(flashSection);
+updateProgress();
 var hints = {
-  1: "Tips: raden måste BÖRJA med # följt av ett mellanslag. Prova: # Mina kunskaper",
-  2: "Tips: en stjärna före och en efter ordet, utan mellanslag: *lärt mig* och **lyftanordningar**",
-  3: "Tips: varje rad måste börja med siffra, prick och mellanslag, till exempel: 1. Först stänger jag av strömmen.",
-  4: "Tips: formatet är exakt [Skolverket](https://www.skolverket.se) – fyrkantparentes kring texten, vanlig parentes kring adressen.",
-  5: "Tips: gå tillbaka till lektionerna ovan och titta på exemplen. Kontrollera också att listraderna börjar precis i början av raden, utan indrag."
+  1: "Tips: raden måste BÖRJA med # följt av ett mellanslag. Prova: # Mitt schema",
+  2: "Tips: stjärnorna ska sitta direkt mot orden, utan mellanslag: *på fredag* och **glosorna**",
+  3: "Tips: varje rad måste börja med siffra, punkt och mellanslag, till exempel: 1. Först läser jag uppgiften.",
+  4: "Tips: formatet är exakt [Skolverket](https://www.skolverket.se) – hakparenteser kring texten, vanliga parenteser kring adressen."
+  /* 5 skrivs av checkLesson: en lista över vad som är klart och vad som saknas */
 };
 var praise = {
   1: "Klockrent! Nu kan du göra rubriker.",
-  2: "Snyggt! Fetstil och kursiv sitta där de ska.",
+  2: "Snyggt! Fetstil och kursiv sitter där de ska.",
   3: "Perfekt – en riktig arbetsgång!",
   4: "Bra! Länken ser klickbar ut.",
   5: "Klar! Din SKILL.md ser bra ut. Ladda ner den med knappen nedanför."
@@ -365,17 +447,30 @@ function checkLesson(n) {
   }
 
   if (n === 1)      ok = /^#\s+\S/m.test(src) && /^##\s+\S/m.test(src);
-  else if (n === 2) ok = /\*[^*\s][^*]*\*/.test(src) && /\*\*[^*]+\*\*/.test(src);
+  else if (n === 2) ok = /\*[^*\s][^*]*\*/.test(src.replace(/\*\*[^*]+\*\*/g, "")) && /\*\*[^*]+\*\*/.test(src); /* kursiv räknas inte inuti fetstil */
   else if (n === 3) ok = /^\s*\d+\.\s+\S/m.test(src) && (src.match(/^\s*\d+\./gm) || []).length >= 2;
   else if (n === 4) ok = /\[([^\]]+)\]\(https?:\/\/[^)\s]+\)/.test(src);
-  else              ok = /^#\s+\S/m.test(src) && /^#{2,3}\s+\S/m.test(src) &&
-                        /^\s*[-*]\s+\S/m.test(src) && /^\s*\d+\.\s+\S/m.test(src) &&
-                        /\*\*[^*]+\*\*/.test(src) && /\[[^\]]+\]\([^)\s]+\)/.test(src);
+  else {
+    var items = [
+      ["ett namn på skillen", slug(document.getElementById("skill-name").value) !== ""],
+      ["en beskrivning", document.getElementById("skill-desc").value.trim() !== ""],
+      ["en stor rubrik som börjar med #", /^#\s+\S/m.test(src)],
+      ["en underrubrik som börjar med ##", /^#{2,3}\s+\S/m.test(src)],
+      ["en punktlista där raderna börjar med -", /^\s*[-*]\s+\S/m.test(src)],
+      ["en numrerad lista där raderna börjar med 1.", /^\s*\d+\.\s+\S/m.test(src)],
+      ["minst ett **fetstilt** ord", /\*\*[^*]+\*\*/.test(src)],
+      ["minst en länk: [text](adress)", /\[[^\]]+\]\([^)\s]+\)/.test(src)]
+    ];
+    ok = items.every(function(it) { return it[1]; });
+    hints[5] = "Det här behövs:\n" + items.map(function(it) {
+      return (it[1] ? "✓ " : "✗ Saknas: ") + it[0];
+    }).join("\n");
+  }
 
   if (ok) {
     fb.textContent = praise[n];
     fb.className = "feedback ok";
-    if (!done[n]) { done[n] = true; updateProgress(); flashSection(n); }
+    if (!done[n]) { done[n] = true; save("done", JSON.stringify(done)); updateProgress(); flashSection(n); }
   } else {
     fb.textContent = "Inte riktigt än. " + hints[n];
     fb.className = "feedback warn";
@@ -387,7 +482,7 @@ function updateProgress() {
   var p = document.getElementById("progress");
   p.value = count;
   document.getElementById("progress-label").textContent =
-    count + (count === 1 ? " lektion klar av 5" : " lektioner klara av 5");
+    count + " av 5 lektioner " + (count === 1 ? "klar" : "klara");
   if (count === 5) {
     document.getElementById("progress-label").textContent += " – GRATTIS, helt klart!";
   }
@@ -402,7 +497,12 @@ function flashSection(n) {
 
 /* ---------- Nedladdning av SKILL.md ---------- */
 function downloadFile() {
-  var text = document.getElementById("final").value;
+  /* utan namn eller beskrivning är filen ingen giltig skill: visa vad som saknas i stället */
+  if (!slug(document.getElementById("skill-name").value) || !document.getElementById("skill-desc").value.trim()) {
+    checkLesson(5);
+    return;
+  }
+  var text = skillFile();
   var blob = new Blob([text], { type: "text/markdown" });
   var url = URL.createObjectURL(blob);
   var a = document.createElement("a");
